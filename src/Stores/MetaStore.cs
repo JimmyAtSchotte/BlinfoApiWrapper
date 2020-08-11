@@ -36,7 +36,7 @@ namespace BlInfoApiWrapper.Stores
 
         public async Task<GetMetaDataResponseItem<GetCustomerInvoiceResponseItem>> GetBatchCustomerInvoices(string queryString)
         {
-            var path = $"/batch/customer?{queryString}";
+            var path = $"/batch/customerinvoice?{queryString}";
             return await _client.GetSingleAsync<GetMetaDataResponseItem<GetCustomerInvoiceResponseItem>>(path);
         }
 
