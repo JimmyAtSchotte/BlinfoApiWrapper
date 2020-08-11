@@ -14,11 +14,11 @@ namespace BlInfoApiWrapper.Dto
         [JsonProperty(PropertyName = "costCenterId")]
         public string CostCenterId { get; set; }
         [JsonProperty(PropertyName = "date")]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         [JsonProperty(PropertyName = "projectId")]
         public string ProjectId { get; set; }
         [JsonProperty(PropertyName = "quantity")]
-        public decimal Quantity { get; set; }
+        public decimal? Quantity { get; set; }
         [JsonProperty(PropertyName = "text")]
         public string Text { get; set; }
 
@@ -29,6 +29,7 @@ namespace BlInfoApiWrapper.Dto
             CostCenterId = string.Empty;
             ProjectId = string.Empty;
             Text = string.Empty;
+            Date = string.Empty;
         }
     }
 }

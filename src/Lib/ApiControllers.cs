@@ -11,6 +11,7 @@
         internal const string ArticlePath = "article";
         internal const string ArticleAccountPath = "article/account";
         internal const string AccountPath = "account";
+        internal const string BatchPath = "batch";
         internal const string CostBearerPath = "costbearer";
         internal const string CustomerPath = "customer";
         internal const string CustomerInvoicePath = "customerinvoice";
@@ -20,8 +21,10 @@
         internal const string SupplierInvoicePath = "supplierinvoice";
         internal const string SupplierInvoiceDatePath = "supplierinvoice/date";
         internal const string SupplierInvoiceDueDatePath = "supplierinvoice/duedate";
+        internal const string SupplierInvoiceEntryPath = "supplierinvoice/entry";
         internal const string ProjectPath = "project";
         internal const string JournalPath = "journal";
+        internal const string JournalIdPath = "journal/verification";
         internal const string OrderPath = "order";
         internal const string OrderTypePath = "order/type";
         internal const string OrderAllPath = "order/all";

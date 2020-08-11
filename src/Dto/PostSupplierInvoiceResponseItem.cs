@@ -29,10 +29,13 @@ namespace BlInfoApiWrapper.Dto
         public string Comment { get; set; }
         [JsonProperty(PropertyName = "consecutiveNumber")]
         public int ConsecutiveNumber { get; set; }
+
+        [JsonProperty(PropertyName = "costCenterId")]
+        public string CostCenterId { get; set; }
+
         [JsonProperty(PropertyName = "currency")]
         public string Currency { get; set; }
-        [JsonProperty(PropertyName = "dateOfLatestPayment")]
-        public string DateOfLatestPayment { get; set; }
+
         [JsonProperty(PropertyName = "documentIds")]
         public List<string> DocumentIds { get; set; }
         [JsonProperty(PropertyName = "dueDate")]
@@ -55,14 +58,24 @@ namespace BlInfoApiWrapper.Dto
         public bool LockedFromPayment { get; set; }
         [JsonProperty(PropertyName = "ocr")]
         public string Ocr { get; set; }
+
         [JsonProperty(PropertyName = "paid")]
         public bool Paid { get; set; }
+
         [JsonProperty(PropertyName = "preliminary")]
         public bool Preliminary { get; set; }
+
+        [JsonProperty(PropertyName = "projectId")]
+        public string ProjectId { get; set; }
+
         [JsonProperty(PropertyName = "registeredByUser")]
         public string RegisteredByUser { get; set; }
+
         [JsonProperty(PropertyName = "supplierId")]
         public string SupplierId { get; set; }
+
+        [JsonProperty(PropertyName = "supplierName")]
+        public string SupplierName { get; set; }
 
         public PostSupplierInvoiceResponseItem()
         {
@@ -71,8 +84,8 @@ namespace BlInfoApiWrapper.Dto
             AttestationJournalentryDate = string.Empty;
             AttestationJournalId = string.Empty;
             Comment = string.Empty;
+            CostCenterId = string.Empty;
             Currency = string.Empty;
-            DateOfLatestPayment = string.Empty;
             DocumentIds = new List<string>();
             DueDate = string.Empty;
             InvoiceDate = string.Empty;
@@ -80,8 +93,10 @@ namespace BlInfoApiWrapper.Dto
             JournalEntryDate = string.Empty;
             JournalId = string.Empty;
             Ocr = string.Empty;
+            ProjectId = string.Empty;
             RegisteredByUser = string.Empty;
             SupplierId = string.Empty;
+            SupplierName = string.Empty;
         }
 
     }

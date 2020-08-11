@@ -11,9 +11,13 @@ namespace BlInfoApiWrapper.Dto
         [JsonProperty(PropertyName = "entryInfoBy")]
         public string EntryInfoBy { get; set; }
         [JsonProperty(PropertyName = "entryInfoDate")]
-        public DateTime EntryInfoDate { get; set; }
+        public string EntryInfoDate { get; set; }
+
+        [JsonProperty(PropertyName = "financialYearId")]
+        public string FinancialYearId { get; set; }
+
         [JsonProperty(PropertyName = "journalEntryDate")]
-        public DateTime JournalEntryDate { get; set; }
+        public string JournalEntryDate { get; set; }
         [JsonProperty(PropertyName = "journalEntryId")]
         public int JournalEntryId { get; set; }
         [JsonProperty(PropertyName = "journalEntryText")]
@@ -26,8 +30,12 @@ namespace BlInfoApiWrapper.Dto
         public List<GetLedgerEntryResponseItem> LedgerEntries { get; set; }
         [JsonProperty(PropertyName = "lockingInfoBy")]
         public string LockingInfoBy { get; set; }
+
         [JsonProperty(PropertyName = "lockingInfoDate")]
         public string LockingInfoDate { get; set; }
+
+        [JsonProperty(PropertyName = "reportDate")]
+        public string ReportDate { get; set; }
 
         public PostJournalResponseItem()
         {
@@ -39,6 +47,9 @@ namespace BlInfoApiWrapper.Dto
             LedgerEntries = new List<GetLedgerEntryResponseItem>();
             LockingInfoBy = string.Empty;
             LockingInfoDate = string.Empty;
+            FinancialYearId = string.Empty;
+            EntryInfoDate = string.Empty;
+            JournalEntryDate = string.Empty;
         }
     }
 }

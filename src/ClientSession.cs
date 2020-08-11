@@ -22,8 +22,9 @@ namespace BlInfoApiWrapper
         private PayrollStore _payrollStore;
         private CostCenterStore _costCenterStore;
         private FinancialYearStore _financialYearStore;
+        private MetaStore _metaStore;
 
-		public CommonStore CommonStore => _commonStore ?? (_commonStore = new CommonStore(_authenticationSession.AccessToken, _userKey));
+        public CommonStore CommonStore => _commonStore ?? (_commonStore = new CommonStore(_authenticationSession.AccessToken, _userKey));
         public AccountStore AccountStore => _accountStore ?? (_accountStore = new AccountStore(_authenticationSession.AccessToken, _userKey));
         public ArticleStore ArticleStore => _articleStore ?? (_articleStore = new ArticleStore(_authenticationSession.AccessToken, _userKey));
         public CostBearerStore CostBearerStore => _costBearerStore ?? (_costBearerStore = new CostBearerStore(_authenticationSession.AccessToken, _userKey));
@@ -39,6 +40,7 @@ namespace BlInfoApiWrapper
         public PayrollStore PayrollStore => _payrollStore ?? (_payrollStore = new PayrollStore(_authenticationSession.AccessToken, _userKey));
         public CostCenterStore CostCenterStore => _costCenterStore ?? (_costCenterStore = new CostCenterStore(_authenticationSession.AccessToken, _userKey));
         public FinancialYearStore FinancialYearStore => _financialYearStore ?? (_financialYearStore = new FinancialYearStore(_authenticationSession.AccessToken, _userKey));
+        public MetaStore MetaStore => _metaStore ?? (_metaStore = new MetaStore(_authenticationSession.AccessToken, _userKey));
         
         public ClientSession(AuthenticationSession authenticationSession, string clientPublicKey)
         {

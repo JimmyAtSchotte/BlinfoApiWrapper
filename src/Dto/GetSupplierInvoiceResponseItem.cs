@@ -33,6 +33,7 @@ namespace BlInfoApiWrapper.Dto
         public string Currency { get; set; }
         [JsonProperty(PropertyName = "dateOfLatestPayment")]
         public string DateOfLatestPayment { get; set; }
+
         [JsonProperty(PropertyName = "documentIds")]
         public List<string> DocumentIds { get; set; }
         [JsonProperty(PropertyName = "dueDate")]
@@ -64,6 +65,12 @@ namespace BlInfoApiWrapper.Dto
         [JsonProperty(PropertyName = "supplierId")]
         public string SupplierId { get; set; }
 
+        [JsonProperty(PropertyName = "supplierName")]
+        public string SupplierName { get; set; }
+
+        [JsonProperty(PropertyName = "subLedgerEntries")]
+        public IEnumerable<GetLedgerEntryResponseItem> SubLedgerEntries { get; set; }
+
         public GetSupplierInvoiceResponseItem()
         {
             AssociatedPayments = new List<GetPaymentResponseItem>();
@@ -82,6 +89,7 @@ namespace BlInfoApiWrapper.Dto
             Ocr  = string.Empty;
             RegisteredByUser = string.Empty;
             SupplierId = string.Empty;
+            SubLedgerEntries = new List<GetLedgerEntryResponseItem>();
         }
     }
 }

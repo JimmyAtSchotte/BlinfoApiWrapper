@@ -22,6 +22,12 @@ namespace BlInfoApiWrapper.Stores
             return await _client.GetAsync<GetSupplierInvoiceResponseItem>(path);
         }
 
+        public async Task<IEnumerable<GetSupplierInvoiceResponseItem>> GetByDateIntervalEntryAsync(DateTime fromDate, DateTime toDate)
+        {
+            var path = $"{ApiControllers.SupplierInvoiceEntryPath}/{fromDate:yyyy-MM-dd}/{toDate:yyyy-MM-dd}";
+            return await _client.GetAsync<GetSupplierInvoiceResponseItem>(path);
+        }
+
         public async Task<IEnumerable<GetSupplierInvoiceResponseItem>> GetByDueDateIntervalAsync(DateTime fromDate, DateTime toDate)
         {
             var path = $"{ApiControllers.SupplierInvoiceDueDatePath}/{fromDate:yyyy-MM-dd}/{toDate:yyyy-MM-dd}";
@@ -34,6 +40,11 @@ namespace BlInfoApiWrapper.Stores
         }
 
         public async Task<PostSupplierInvoiceResponseItem> Post(PostSupplierInvoiceRequestItem item)
+        {
+            return await _client.PostAsync<PostSupplierInvoiceResponseItem>(item, ApiControllers.SupplierInvoicePath);
+        }
+
+        public async Task<PostSupplierInvoiceResponseItem> Post(PostSupplierInvoiceFixedRequestItem item)
         {
             return await _client.PostAsync<PostSupplierInvoiceResponseItem>(item, ApiControllers.SupplierInvoicePath);
         }

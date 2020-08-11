@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace BlInfoApiWrapper.Dto
 {
-    public class GetCustomerInvoiceResponseItem
+    public class PostCustomerInvoiceResponseItem
     {
         [JsonProperty(PropertyName = "amountInLocalCurrency")]
         public decimal AmountInLocalCurrency { get; set; }
@@ -26,6 +24,20 @@ namespace BlInfoApiWrapper.Dto
 
         [JsonProperty(PropertyName = "dateOfLatestPayment")]
         public string DateOfLatestPayment { get; set; }
+
+
+        [JsonProperty(PropertyName = "deliveryBox")]
+        public string DeliveryBox { get; set; }
+
+        [JsonProperty(PropertyName = "deliveryStreet")]
+        public string DeliveryStreet { get; set; }
+
+        [JsonProperty(PropertyName = "deliveryCity")]
+        public string DeliveryCity { get; set; }
+
+        [JsonProperty(PropertyName = "deliveryZip")]
+        public string DeliveryZip { get; set; }
+
         [JsonProperty(PropertyName = "documentIds")]
         public List<string> DocumentIds { get; set; }
         [JsonProperty(PropertyName = "dueDate")]
@@ -35,7 +47,7 @@ namespace BlInfoApiWrapper.Dto
         [JsonProperty(PropertyName = "invoiceDate")]
         public string InvoiceDate { get; set; }
         [JsonProperty(PropertyName = "invoiceNumber")]
-        public int InvoiceNumber { get;set; }
+        public int InvoiceNumber { get; set; }
         [JsonProperty(PropertyName = "journalEntryDate")]
         public string JournalEntryDate { get; set; }
         [JsonProperty(PropertyName = "journalEntryId")]
@@ -65,13 +77,17 @@ namespace BlInfoApiWrapper.Dto
         [JsonProperty(PropertyName = "subLedgerEntries")]
         public List<GetLedgerEntryResponseItem> SubLedgerEntries { get; set; }
 
-        public GetCustomerInvoiceResponseItem()
+        public PostCustomerInvoiceResponseItem()
         {
             AssociatedCustomerPayments = new List<GetPaymentResponseItem>();
             Currency = string.Empty;
             CustomerId = string.Empty;
             CustomerName = string.Empty;
             DateOfLatestPayment = string.Empty;
+            DeliveryBox = string.Empty;
+            DeliveryCity = string.Empty;
+            DeliveryStreet = string.Empty;
+            DeliveryZip = string.Empty;
             DocumentIds = new List<string>();
             DueDate = string.Empty;
             InvoiceDate = string.Empty;

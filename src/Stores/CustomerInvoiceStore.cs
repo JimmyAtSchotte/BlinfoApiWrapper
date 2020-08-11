@@ -32,5 +32,10 @@ namespace BlInfoApiWrapper.Stores
         {
             return await _client.GetSingleAsync<GetCustomerInvoiceResponseItem>($"{ApiControllers.CustomerInvoicePath}/{number:F0}");
         }
+
+        public async Task<PostCustomerInvoiceResponseItem> Post(PostCustomerInvoiceRequestItem item)
+        {
+            return await _client.PostAsync<PostCustomerInvoiceResponseItem>(item, ApiControllers.CustomerInvoicePath);
+        }
     }
 }

@@ -22,9 +22,17 @@ namespace BlInfoApiWrapper.Stores
             return await _client.GetAsync<GetJournalResponseItem>(path);
         }
 
+
         public async Task<PostJournalResponseItem> PostAsync(PostJournalRequestItem item)
         {
             return await _client.PostAsync<PostJournalResponseItem>(item, ApiControllers.JournalPath);
+        }
+
+        public async Task<GetJournalResponseItem> GetJournalByJournalAndEntryId(string journalId, int journalEntryId,
+            string journalEntryDate)
+        {
+            var path = $"{ApiControllers.JournalIdPath}/{journalId}/{journalEntryId}/{journalEntryDate}";
+            return await _client.GetSingleAsync<GetJournalResponseItem>(path);
         }
     }
 }

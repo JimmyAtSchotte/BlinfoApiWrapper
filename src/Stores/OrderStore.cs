@@ -38,5 +38,11 @@ namespace BlInfoApiWrapper.Stores
         {
             return await _client.GetSingleAsync<GetOrderResponseItem>($"{ApiControllers.OrderPath}/{type:F0}/{id:F0}");
         }
+
+        public async Task<PostOrderResponseItem> PostAsync(PostOrderRequestItem item)
+        {
+
+            return await _client.PostAsync<PostOrderResponseItem>(item, ApiControllers.OrderPath);
+        }
     }
 }

@@ -3,9 +3,11 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.4;net45</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
-    <Version>0.1.0</Version>
+    <AssemblyVersion>0.61.0.0</AssemblyVersion>
+    <FileVersion>0.61.0.0</FileVersion>
+    <Version>0.61.0</Version>
+    <PackageReleaseNotes>Making some changes to the uploadfile-method.</PackageReleaseNotes>
+    <Description>Making some changes to the uploadfile-method.</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -32,6 +32,11 @@ namespace BlInfoApiWrapper.Stores
             }
         }
 
+        public async Task<PostDocumentResponseItem> Post(byte[] document, string name, string fileName)
+        {
+            return await _client.UploadFile<PostDocumentResponseItem>(document, $"{ApiControllers.ApiBaseUrl}{ApiControllers.DocumentPath}/{fileName}", name, fileName);
+        }
+
         private string GetFilename(HttpContent content)
         {
             var contentDispositionFilename = content.Headers.GetValues("Content-Disposition").SingleOrDefault(t => t.Contains("filename"));

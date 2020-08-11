@@ -2,77 +2,118 @@
 
 namespace BlInfoApiWrapper.Dto
 {
-    public class GetCustomerResponseItem
+    public class PutCustomerResponseItem
     {
         [JsonProperty(PropertyName = "bg")]
         public string Bg { get; set; }
+
         [JsonProperty(PropertyName = "box")]
         public string Box { get; set; }
+
         [JsonProperty(PropertyName = "category")]
         public string Category { get; set; }
+
         [JsonProperty(PropertyName = "city")]
         public string City { get; set; }
+
         [JsonProperty(PropertyName = "closed")]
         public bool Closed { get; set; }
+
         [JsonProperty(PropertyName = "comment")]
         public string Comment { get; set; }
+
         [JsonProperty(PropertyName = "country")]
         public string Country { get; set; }
+
         [JsonProperty(PropertyName = "creditLimit")]
-        public decimal? CreditLimit { get; set; }
+        public int CreditLimit { get; set; }
+
         [JsonProperty(PropertyName = "currency")]
         public string Currency { get; set; }
+
         [JsonProperty(PropertyName = "deliveryTerms")]
         public string DeliveryTerms { get; set; }
+
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
+
         [JsonProperty(PropertyName = "fax")]
         public string Fax { get; set; }
+
+        [JsonProperty(PropertyName = "gln")]
+        public string Gln { get; set; }
+
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
+
         [JsonProperty(PropertyName = "interestInvoicingAllowed")]
         public bool InterestInvoicingAllowed { get; set; }
+
+
+        [JsonProperty(PropertyName = "invoiceBy")]
+        public string InvoiceBy { get; set; }
+
+        [JsonProperty(PropertyName = "invoiceTo")]
+        public string InvoiceTo { get; set; }
+
         [JsonProperty(PropertyName = "mobile")]
         public string Mobile { get; set; }
+
         [JsonProperty(PropertyName = "modeOfDelivery")]
         public string ModeOfDelivery { get; set; }
+
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
         [JsonProperty(PropertyName = "organisationNumber")]
         public string OrganisationNumber { get; set; }
+
         [JsonProperty(PropertyName = "paymentTerms")]
         public string PaymentTerms { get; set; }
+
         [JsonProperty(PropertyName = "pg")]
         public string Pg { get; set; }
+
         [JsonProperty(PropertyName = "phone")]
         public string Phone { get; set; }
+
         [JsonProperty(PropertyName = "pricelist")]
         public int Pricelist { get; set; }
+
         [JsonProperty(PropertyName = "receivableAccount")]
         public string ReceivableAccount { get; set; }
-        [JsonProperty(PropertyName = "remindersAllowed")]
-        public bool? RemindersAllowed { get; set; }
+
+        [JsonProperty(PropertyName = "reminderAllowed")]
+        public bool ReminderAllowed { get; set; }
+
         [JsonProperty(PropertyName = "remindersFeeAllowed")]
-        public bool? RemindersFeeAllowed { get; set; }
+        public bool RemindersFeeAllowed { get; set; }
+
         [JsonProperty(PropertyName = "responsiblePerson")]
         public string ResponsiblePerson { get; set; }
+
         [JsonProperty(PropertyName = "salesAccount")]
         public string SalesAccount { get; set; }
+
         [JsonProperty(PropertyName = "street")]
         public string Street { get; set; }
+
         [JsonProperty(PropertyName = "vatCode")]
-        public int VatCode { get; set; }
+        public decimal VatCode { get; set; }
+
         [JsonProperty(PropertyName = "vatNumber")]
         public string VatNumber { get; set; }
+
         [JsonProperty(PropertyName = "web")]
         public string Web { get; set; }
+
         [JsonProperty(PropertyName = "yourReference")]
         public string YourReference { get; set; }
+
         [JsonProperty(PropertyName = "zip")]
         public string Zip { get; set; }
 
-
-        public GetCustomerResponseItem()
+        public PutCustomerResponseItem()
         {
             Bg = string.Empty;
             Box = string.Empty;
@@ -84,7 +125,10 @@ namespace BlInfoApiWrapper.Dto
             DeliveryTerms = string.Empty;
             Email = string.Empty;
             Fax = string.Empty;
+            Gln = string.Empty;
             Id = string.Empty;
+            InvoiceBy = string.Empty;
+            InvoiceTo = string.Empty;
             Mobile = string.Empty;
             ModeOfDelivery = string.Empty;
             Name = string.Empty;

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace BlInfoApiWrapper.Dto
 {
-    public class GetCustomerInvoiceResponseItem
+    public class PostCustomerInvoiceRequestItem
     {
         [JsonProperty(PropertyName = "amountInLocalCurrency")]
         public decimal AmountInLocalCurrency { get; set; }
@@ -26,6 +24,7 @@ namespace BlInfoApiWrapper.Dto
 
         [JsonProperty(PropertyName = "dateOfLatestPayment")]
         public string DateOfLatestPayment { get; set; }
+
         [JsonProperty(PropertyName = "documentIds")]
         public List<string> DocumentIds { get; set; }
         [JsonProperty(PropertyName = "dueDate")]
@@ -35,7 +34,7 @@ namespace BlInfoApiWrapper.Dto
         [JsonProperty(PropertyName = "invoiceDate")]
         public string InvoiceDate { get; set; }
         [JsonProperty(PropertyName = "invoiceNumber")]
-        public int InvoiceNumber { get;set; }
+        public int InvoiceNumber { get; set; }
         [JsonProperty(PropertyName = "journalEntryDate")]
         public string JournalEntryDate { get; set; }
         [JsonProperty(PropertyName = "journalEntryId")]
@@ -65,7 +64,7 @@ namespace BlInfoApiWrapper.Dto
         [JsonProperty(PropertyName = "subLedgerEntries")]
         public List<GetLedgerEntryResponseItem> SubLedgerEntries { get; set; }
 
-        public GetCustomerInvoiceResponseItem()
+        public PostCustomerInvoiceRequestItem()
         {
             AssociatedCustomerPayments = new List<GetPaymentResponseItem>();
             Currency = string.Empty;

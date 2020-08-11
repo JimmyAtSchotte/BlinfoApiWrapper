@@ -16,6 +16,7 @@ namespace BlInfoApiWrapper.Communication
         private readonly string _accessToken;
         private readonly string _userKey;
 
+
         public BaseRestClient() : this(string.Empty, string.Empty) { }
         public BaseRestClient(string accessToken) : this(accessToken, string.Empty) { }
 
@@ -29,6 +30,7 @@ namespace BlInfoApiWrapper.Communication
         {
             using (var client = GetClient())
             {
+             
                 var response = await client.PutAsync(GetUrl(path), new StringContent(JsonConvert.SerializeObject(o), Encoding.UTF8));
                 var json = await response.Content.ReadAsStringAsync();
                 if (IsErrorJson(json)) throw GetExceptionFromJson(json);
@@ -48,11 +50,40 @@ namespace BlInfoApiWrapper.Communication
         {
             using (var client = GetClient())
             {
+                var response = await client.PostAsync(GetUrl(path), new StringContent(JsonConvert.SerializeObject(o), Encoding.UTF8, "application/json"));
+                var json = await response.Content.ReadAsStringAsync();
+                if (IsErrorJson(json)) throw GetExceptionFromJson(json);
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+        }
+
+        public async Task<T> PostAsyncForDocument<T>(object o, string path)
+        {
+            using (var client = GetClient())
+            {
                 var response = await client.PostAsync(GetUrl(path), new StringContent(JsonConvert.SerializeObject(o), Encoding.UTF8));
                 var json = await response.Content.ReadAsStringAsync();
                 if (IsErrorJson(json)) throw GetExceptionFromJson(json);
                 return JsonConvert.DeserializeObject<T>(json);
             }
+        }
+
+        public async Task<T> UploadFile<T>(byte[] fileBytes, string path, string name, string fileName)
+        {
+            using (var client = GetClient())
+            {
+                var form = new MultipartFormDataContent();
+                form.Add(new ByteArrayContent(fileBytes, 0, fileBytes.Length), name, fileName);
+                
+                var response = await client.PostAsync(path, form);
+
+                response.EnsureSuccessStatusCode();
+                client.Dispose();
+                var json = await response.Content.ReadAsStringAsync();
+                if (IsErrorJson(json)) throw GetExceptionFromJson(json);
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+  
         }
 
         public async Task<T> GetSingleAsync<T>(string path)
@@ -88,6 +119,7 @@ namespace BlInfoApiWrapper.Communication
         internal HttpClient GetClient()
         {
             var client = new HttpClient();
+            client.Timeout = TimeSpan.FromHours(12);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.AcceptCharset.Clear();
